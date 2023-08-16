@@ -104,8 +104,9 @@ class _IntroPageState extends State<IntroPage> {
                 TextField(
                   controller: _createaccount,
                   decoration: InputDecoration(
-                    labelText: "Create your account",
+                    labelText: "Create your account",             
                     border: OutlineInputBorder(
+                    
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
