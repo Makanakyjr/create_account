@@ -1,10 +1,5 @@
-# create_account
-
-A new Flutter project.
-
-## Getting Started
-
 This project is a starting point for a Flutter application.
+it contains all the necessary information one will need to access an application
 
 A few resources to get you started if this is your first Flutter project:
 
