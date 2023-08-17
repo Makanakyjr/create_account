@@ -13,7 +13,7 @@ class _IntroPageState extends State<IntroPage> {
   final TextEditingController _phoneNumber = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _passWord = TextEditingController();
-  final TextEditingController _createaccount = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +43,7 @@ class _IntroPageState extends State<IntroPage> {
             const SizedBox(height: 25.0),
             TextField(
               controller: _legalSurname,
-              obscureText: true,
+              obscureText: false,
               decoration: InputDecoration(
                 labelText: "Full legal Surname",
                 hintText: "Full legal Surname",
@@ -55,7 +55,8 @@ class _IntroPageState extends State<IntroPage> {
             const SizedBox(height: 25.0),
             TextField(
               controller: _phoneNumber,
-              obscureText: true,
+              obscureText: false,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Phone Number",
                 hintText: "Example: 81800000000",
@@ -67,7 +68,7 @@ class _IntroPageState extends State<IntroPage> {
             const SizedBox(height: 25.0),
             TextField(
               controller: _email,
-              obscureText: true,
+              obscureText: false,
               decoration: InputDecoration(
                 hintText: "Email Address",
                 labelText: "Email Address",
@@ -79,9 +80,11 @@ class _IntroPageState extends State<IntroPage> {
             const SizedBox(height: 25.0),
             TextField(
               controller: _passWord,
+              obscureText: true,
               decoration: InputDecoration(
                 hintText: "Password",
                 labelText: "Password",
+                
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -99,28 +102,76 @@ class _IntroPageState extends State<IntroPage> {
             const SizedBox(
               height: 25.0,
             ),
-            Column(
-              children: [
-                TextField(
-                  controller: _createaccount,
-                  decoration: InputDecoration(
-                    labelText: "Create your account",             
-                    border: OutlineInputBorder(
-                    
-                      borderRadius: BorderRadius.circular(10.0),
+           Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFDCDCDC),
+                      minimumSize: const Size(317, 56),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
                     ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Create your account',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w600,
+                        height: 1.50,
+                      ),
+                    ),
+           
+         ), ),
+         const SizedBox(
+            height: 32, ),
+
+            const Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Got an account? ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w300,
+                    height: 1.50,
+                  ),
+                ),
+                TextSpan(
+                  text: 'Sign in',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 1.50,
                   ),
                 ),
               ],
-            )
-          ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 88,
+          )
+         ],
+
+         
         ),
-      )),
+
+        
+      ),),
+
+
+      
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.white,
         child: const Icon(Icons.message_outlined),
       ),
+      
     );
   }
 }
