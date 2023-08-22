@@ -23,6 +23,7 @@ class _IntroPageState extends State<IntroPage> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   "Create your account",

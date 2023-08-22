@@ -1,6 +1,8 @@
 import 'package:create_account/intropage.dart';
 import 'package:flutter/material.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +20,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true
+        useMaterial3: true,
       ) ,
       home: const IntroPage(),
 
