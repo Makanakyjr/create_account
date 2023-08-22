@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:extended_phone_number_input/consts/enums.dart';
+import 'package:extended_phone_number_input/phone_number_input.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -10,7 +12,7 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _legalSurname = TextEditingController();
-  final TextEditingController _phoneNumber = TextEditingController();
+
   final TextEditingController _email = TextEditingController();
   final TextEditingController _passWord = TextEditingController();
 
@@ -57,17 +59,24 @@ class _IntroPageState extends State<IntroPage> {
                 ),
                 const SizedBox(height: 25.0),
                 TextField(
-                  controller: _phoneNumber,
+                  controller: _legalSurname,
                   obscureText: false,
-                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    labelText: "Phone Number",
-                    hintText: "Example: 81800000000",
+                    labelText: "Full legal Surname",
+                    hintText: "Full legal Surname",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
+                const SizedBox(height: 25.0),
+                PhoneNumberInput(
+                    initialCountry: 'NG',
+                    locale: 'en',
+                    countryListMode: CountryListMode.dialog,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    )),
                 const SizedBox(height: 25.0),
                 TextField(
                   controller: _email,
