@@ -12,6 +12,7 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _legalSurname = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _passWord = TextEditingController();
@@ -22,6 +23,7 @@ class _IntroPageState extends State<IntroPage> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
+            key: _formKey,
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
             child: Column(
@@ -121,7 +123,16 @@ class _IntroPageState extends State<IntroPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      print(_nameController.text);
+                      print(_email.text);
+                      print(_passWord.text);
+                      if (_formKey.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("User validation successful")));
+                      }
+                    },
                     child: const Text(
                       'Create your account',
                       style: TextStyle(
