@@ -1,6 +1,7 @@
+import 'package:create_account/widgets/phoneInput.dart';
+import 'package:create_account/widgets/textInput.dart';
 import 'package:flutter/material.dart';
-import 'package:extended_phone_number_input/consts/enums.dart';
-import 'package:extended_phone_number_input/phone_number_input.dart';
+
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -13,7 +14,6 @@ class _IntroPageState extends State<IntroPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _legalSurname = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
   final TextEditingController _email = TextEditingController();
   final TextEditingController _passWord = TextEditingController();
 
@@ -39,111 +39,30 @@ class _IntroPageState extends State<IntroPage> {
                   ),
                   const Divider(height: 30.0, color: Colors.grey),
                   const SizedBox(height: 20),
-                  TextFormField(
+                  CustomTextInput(
                     controller: _nameController,
-                    
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    decoration: InputDecoration(
-                      labelText: "Full legal first and middle name(s)",
-                      hintText: "Full legal first and middle name(s)",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                    ),
+                    text: "Full legal first and middle name(s)",
                   ),
                   const SizedBox(height: 25.0),
-                  TextFormField(
-                    controller: _legalSurname,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    },
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: "Full legal Surname",
-                      hintText: "Full legal Surname",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ),
+                  CustomTextInput(
+                      controller: _legalSurname, text: "Full legal Surname"),
                   const SizedBox(height: 25.0),
-                  TextFormField(
-                    controller: _legalSurname,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    },
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: "Nationality",
-                      hintText: "Country of Birth",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ),
+                  const PhoneInput(),
                   const SizedBox(height: 25.0),
-                  PhoneNumberInput(
-                      initialCountry: 'NG',
-                      locale: 'en',
-                      countryListMode: CountryListMode.dialog,
-                      
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      )),
-                  const SizedBox(height: 25.0),
-                  TextFormField(
+                  CustomTextInput(
                     controller: _email,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    },
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: "Email Address",
-                      labelText: "Email Address",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
+                    text: "Email Address",
+                    errorMessage: "Input a valid email account",
                   ),
                   const SizedBox(height: 25.0),
-                  TextFormField(
+                  CustomTextInput(
                     controller: _passWord,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "This field cannot be empty";
-                      } else {
-                        return null;
-                      }
-                    },
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      labelText: "Password",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
+                    text: "Password",
+                    isObscure: true,
+                    errorMessage: "Input a valid password",
                   ),
                   const SizedBox(height: 10),
-                  Text(
+                  const Text(
                     "I confirm the information provided is correct as they appear on my legal document",
                     style: TextStyle(
                       color: Colors.black,
