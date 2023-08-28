@@ -9,7 +9,6 @@ class IntroPage extends StatefulWidget {
   @override
   State<IntroPage> createState() => _IntroPageState();
 }
-
 class _IntroPageState extends State<IntroPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _legalSurname = TextEditingController();
