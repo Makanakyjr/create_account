@@ -2,13 +2,13 @@ import 'package:create_account/widgets/phoneInput.dart';
 import 'package:create_account/widgets/textInput.dart';
 import 'package:flutter/material.dart';
 
-
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
   @override
   State<IntroPage> createState() => _IntroPageState();
 }
+
 class _IntroPageState extends State<IntroPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _legalSurname = TextEditingController();
@@ -75,7 +75,7 @@ class _IntroPageState extends State<IntroPage> {
                   Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFDCDCDC),
+                        backgroundColor: Color.fromARGB(255, 12, 11, 11),
                         minimumSize: const Size(317, 56),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -93,7 +93,7 @@ class _IntroPageState extends State<IntroPage> {
                       child: const Text(
                         'Create your account',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 11, 211, 234),
                           fontSize: 16,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
